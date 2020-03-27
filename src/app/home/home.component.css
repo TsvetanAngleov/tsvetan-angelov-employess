@@ -1,0 +1,57 @@
+ul {
+    display: block;
+}
+
+.empHeather {
+    display: inline-block;
+    width: 20%;
+    margin-bottom: 1%;
+    font-weight: bold;
+    font-size: 14pt;
+    border: 1px solid #000000;
+    height: 50px;
+    vertical-align: top;
+}
+
+.empData {
+    display: inline-block;
+    width: 20%;
+    border: 1px solid #000000;
+}
+
+@media only screen and (max-width: 600px) {
+    .empHeather {
+        display: inline-block;
+        width: 15%;
+        margin-right: 5%;
+        font-weight: bold;
+        font-size: 6pt;
+        border: 1px solid #000000;
+        height: 50px;
+        vertical-align: top;
+    }
+    .empData {
+        font-size: 6pt;
+        width: 20%;
+        border: 1px solid #000000;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .empHeather {
+        display: inline-block;
+        height: 10px;
+        width: 15%;
+        margin-right: 5%;
+        font-weight: bold;
+        font-size: 4pt;
+        border: 1px solid #000000;
+        height: 50px;
+        vertical-align: top;
+    }
+    .empData {
+        font-size: 4pt;
+        width: 20%;
+        border: 1px solid #000000;
+    }
+}

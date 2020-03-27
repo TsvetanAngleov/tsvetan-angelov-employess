@@ -1,0 +1,13 @@
+<input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" (change)="handleFileSelect($event)">
+<ul *ngIf="couples">
+
+    <span class="emp1IDheather empHeather">Employee ID #1</span>
+    <span class="emp2IDheather empHeather">Employee ID #2</span>
+    <span class="ProjetIDheather empHeather">Project ID</span>
+    <span class="daysWorkedheather empHeather">Days worked</span>
+    <span *ngFor="let couple of couples.couples"> 
+             
+                    <span class="emp1ID empData">{{ couple.empID1 }} </span>
+    <span class="emp2ID empData">{{ couple.empID2 }} </span>
+    <span class="ProjetID empData">{{ couple.projectID }} </span>
+    <span class="daysWorked empData">{{ couple.daysWorked }} </span>
