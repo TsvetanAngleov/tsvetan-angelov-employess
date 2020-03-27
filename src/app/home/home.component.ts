@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { element } from '@angular/core/src/render3';
-import { User } from '../files/user';
-import { Couples } from '../files/couple-employees';
-import { Couple } from '../files/couple-employees';
+import { User } from '../utils/user';
+import { Couples } from '../utils/couple-employees';
+import { Couple } from '../utils/couple-employees';
 
 @Component({
   selector: 'app-home',
@@ -33,39 +32,33 @@ export class HomeComponent implements OnInit {
 
       this.users.push(new User(currentUser));
 
-     });
+    });
 
-       this.couples = new Couples(this.users);
+    this.couples = new Couples(this.users);
 
-        // console.log(this.couples); // Check the object
+    // console.log(this.couples); // Check the object
     // Console OUTPUT
- this.couples.couples.forEach((currentCouple) => {
-  console.log(`Emp1ID: ${currentCouple.empID1} Emp2ID: ${currentCouple.empID1}
+    this.couples.couples.forEach((currentCouple) => {
+      console.log(`Emp1ID: ${currentCouple.empID1} Emp2ID: ${currentCouple.empID1}
   projectID: ${currentCouple.projectID} WorkedDays: ${currentCouple.daysWorked}`);
-});
-
-
+    });
   }
 
+  handleFileSelect(evt) {
+    const files = evt.target.files; // FileList object
+    // Loop through the FileList and render image files as thumbnails.
+    for (let i = 0, f; f = files[i]; i++) {
+      const reader = new FileReader();
+      reader.onload = ((Currentreader) => {
+        return () => {
+          const contents = reader.result;
+          const lines = (String(contents)).split('\n');
+          this.createCouples(lines);
+        }
+      })(reader);
 
-
-  handleFileSelect(evt)  {
-      const files = evt.target.files; // FileList object
-      // Loop through the FileList and render image files as thumbnails.
-      for (let i = 0, f; f = files[i]; i++) {
-          const reader = new FileReader();
-          reader.onload = ((Currentreader) =>
-          {
-              return () =>
-              {
-                  const contents = reader.result;
-                  const lines = contents.split('\n');
-                  this.createCouples(lines);
-              }
-          })(reader);
-
-          reader.readAsText(f);
-      }
+      reader.readAsText(f);
+    }
   }
 
 
